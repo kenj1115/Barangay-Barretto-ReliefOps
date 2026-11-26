@@ -1,0 +1,37 @@
+{
+  "name": "barangay-barretto-reliefops",
+  "version": "1.0.0",
+  "description": "Barangay Barretto ReliefOps - Full-stack disaster relief management system",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "nodemon --watch server server/index.js",
+    "dev:frontend": "cd client && npm run dev",
+    "dev:all": "concurrently \"npm run dev\" \"npm run dev:frontend\"",
+    "db:setup": "node database/setup.js",
+    "test": "node --test tests/regression.test.js",
+    "start": "node server/index.js"
+  },
+  "keywords": [
+    "barangay",
+    "relief",
+    "disaster",
+    "management"
+  ],
+  "author": "EDP Final Project",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.3",
+    "socket.io": "^4.8.1",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5",
+    "nodemon": "^3.1.14"
+  }
+}
