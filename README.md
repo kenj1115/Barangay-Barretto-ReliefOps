@@ -34,15 +34,18 @@ See the [User Manual](USER_MANUAL.md) for role-based operating instructions.
    npm --prefix client install
    ```
 
-3. Create a local environment file and edit it with your PostgreSQL settings:
+3. Configure your `.env` file in the project root (keep `.env` out of version control):
 
-   ```powershell
-   Copy-Item .env.example .env
-   ```
+   - **Option A — Connect to the shared Supabase database:** Request the `.env` file from the project's private Google Drive (contact the project maintainer for access) and place it in the root directory. Because the Supabase database is already provisioned with `DATABASE_URL`, you can skip step 4 (`npm run db:setup`) and go straight to step 5.
+   - **Option B — Use a local PostgreSQL database:**
 
-   Set `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, and `DB_PASSWORD` for your local database. Set `JWT_SECRET` to a strong, private value. Keep `.env` out of version control.
+     ```powershell
+     Copy-Item .env.example .env
+     ```
 
-4. Create the local database schema and seed data:
+     Remove or comment out `DATABASE_URL`, set `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, and `DB_PASSWORD` for your local database, and set `JWT_SECRET` to a strong, private value.
+
+4. Create the local database schema and seed data (only needed for Option B / local PostgreSQL):
 
    ```powershell
    npm run db:setup
